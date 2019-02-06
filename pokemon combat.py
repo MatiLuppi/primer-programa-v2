@@ -11,7 +11,7 @@ if pokemon_elegido == "SQUIRTLE":
     rival_name = "Squirtle"
     rival_damage = 10
     rival_attack = "Bubble Beam"
-
+# ses
 elif pokemon_elegido == "CHARMANDER":
     rival_hp = 80
     rival_name = "Charmander"
