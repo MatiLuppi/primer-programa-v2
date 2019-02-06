@@ -1,36 +1,58 @@
 pikachu_hp = 100
 rival_hp = 0
-pokemon_elegido = input("what pokemon you want to fight against?(BULBASAUR/SQUIRTLE/CHARMANDER): ")
+pokemon_elegido = input("what pokemon you want to fight against?(BULBASAUR/SQUIRTLE/CHARMANDER): ").upper()
+rival_name = 7
+rival_damage = 0
+rival_attack = 3
+
 
 if pokemon_elegido == "SQUIRTLE":
     rival_hp = 90
+    rival_name = "Squirtle"
+    rival_damage = 10
+    rival_attack = "Bubble Beam"
 
-if pokemon_elegido == "CHARMANDER":
+elif pokemon_elegido == "CHARMANDER":
     rival_hp = 80
+    rival_name = "Charmander"
+    rival_damage = 11
+    rival_attack = "Ember"
 
-if pokemon_elegido == "BULBASAUR":
+elif pokemon_elegido == "BULBASAUR":
     rival_hp = 100
+    rival_name = "bulbasaur"
+    rival_damage = 12
+    rival_attack = "Razor Leafe"
 
-print("your rival has sent out {}".format(pokemon_elegido))
+if (pokemon_elegido == "BULBASAUR" or pokemon_elegido == "SQUIRTLE" or pokemon_elegido == "CHARMANDER"):
+    print("your rival has sent out {}".format(rival_name))
+else:
+    print("that's not a pokemon")
+print("You has sent out Pikachu")
 
 while pikachu_hp > 0 and rival_hp > 0:
 
-    chose_atack = input("what atack you want to use (TACKLE/THUNDERBOLT)")
+    chose_atack = input("what atack you want to use (TACKLE/THUNDERBOLT): ").upper()
+
+
+
 
     if chose_atack == "TACKLE":
         rival_hp -=10
 
-    if chose_atack == "THUNDERBOLT":
+    elif chose_atack == "THUNDERBOLT":
         rival_hp -=13
 
-    if pokemon_elegido == "SQUIRTLE":
-        print("Squirtle used tackle (-10HP)")
-        pikachu_hp -=10
+    else: rival_hp -=0
 
-    if pokemon_elegido == "CHARMANDER":
-        print("Charmander used Ember (-13HP)")
-        pikachu_hp -=13
+    print("{} has actually {}HP".format(pokemon_elegido, rival_hp))
 
-    if pokemon_elegido == "BULBASAUR":
-        print("Bulbasaur used aor leafe (-12HP)")
-        pikachu_hp -=12
+    print("{} used {}".format(rival_name, rival_attack ))
+
+    pikachu_hp -= rival_damage
+
+    print("Your Pikachu has actually {}HP".format(pikachu_hp))
+if rival_hp <= 0:
+    print("You won, rival paid you 35")
+elif pikachu_hp <= 0:
+    print("You lose")
